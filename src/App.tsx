@@ -1,26 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type State = {
+  content: string
+}
+
+class App extends Component<any, State>{
+
+  constructor(props: Readonly<any> | any) {
+    super(props);
+    this.state = {
+      content: ''
+    }
+  }
+
+  handleOnChange = (event: any) => {
+    this.setState({ content: event.target.value })
+  }
+
+  handleOnSubmit = () => {
+    console.warn('cli', this.state.content)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>TODO</h1>
+        <input onChange={this.handleOnChange} />
+        <button onClick={this.handleOnSubmit}>提交</button>
+      </div>
+    );
+  }
 }
 
 export default App;
