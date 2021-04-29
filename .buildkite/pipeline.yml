@@ -1,5 +1,5 @@
 steps:
-  - command: "npm install"
+  - command: auto/get-pkg-version
 
   - wait
 
