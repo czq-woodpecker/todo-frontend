@@ -1,0 +1,6 @@
+steps:
+  - command: "npm install"
+
+  - wait
+
+  - command: "npm run build xxx"
